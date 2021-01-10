@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&family=Roboto:wght@400;500&display=swap');
+
+.container {
+    margin: 0 auto;
+    padding-right: 10px;
+    padding-left:  10px; 
+}
+
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: column wrap;
+    justify-content: center;
+}

@@ -3,5 +3,162 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "reloj-lib": {
+      "projectType": "library",
+      "root": "projects/reloj-lib",
+      "sourceRoot": "projects/reloj-lib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/reloj-lib/tsconfig.lib.json",
+            "project": "projects/reloj-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/reloj-lib/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/reloj-lib/src/test.ts",
+            "tsConfig": "projects/reloj-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/reloj-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/reloj-lib/tsconfig.lib.json",
+              "projects/reloj-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "reloj-ejemplo": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/reloj-ejemplo",
+      "sourceRoot": "projects/reloj-ejemplo/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/reloj-ejemplo",
+            "index": "projects/reloj-ejemplo/src/index.html",
+            "main": "projects/reloj-ejemplo/src/main.ts",
+            "polyfills": "projects/reloj-ejemplo/src/polyfills.ts",
+            "tsConfig": "projects/reloj-ejemplo/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/reloj-ejemplo/src/favicon.ico",
+              "projects/reloj-ejemplo/src/assets"
+            ],
+            "styles": [
+              "projects/reloj-ejemplo/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/reloj-ejemplo/src/environments/environment.ts",
+                  "with": "projects/reloj-ejemplo/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "reloj-ejemplo:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "reloj-ejemplo:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "reloj-ejemplo:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/reloj-ejemplo/src/test.ts",
+            "polyfills": "projects/reloj-ejemplo/src/polyfills.ts",
+            "tsConfig": "projects/reloj-ejemplo/tsconfig.spec.json",
+            "karmaConfig": "projects/reloj-ejemplo/karma.conf.js",
+            "assets": [
+              "projects/reloj-ejemplo/src/favicon.ico",
+              "projects/reloj-ejemplo/src/assets"
+            ],
+            "styles": [
+              "projects/reloj-ejemplo/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/reloj-ejemplo/tsconfig.app.json",
+              "projects/reloj-ejemplo/tsconfig.spec.json",
+              "projects/reloj-ejemplo/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/reloj-ejemplo/e2e/protractor.conf.js",
+            "devServerTarget": "reloj-ejemplo:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "reloj-ejemplo:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "reloj-lib"
 }

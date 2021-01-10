@@ -1,0 +1,43 @@
+<div class="options flex">
+  <ul>
+      <li><button class="btn-menu" (click)="showClock()"><span>Reloj</span></button></li>
+      <li><button class="btn-menu" (click)="showStopwatch()"><span>Cronómetro</span></button></li>
+      <li><button class="btn-menu" (click)="showCountdown()"><span>Cuenta atrás</span></button></li>
+  </ul>
+</div>
+
+<div class="container flex">
+  <div *ngIf="setClock" class="box-element flex">
+    <h2>Reloj</h2>
+    <lib-reloj-lib [initClock]="true" (clockEvs)="clockEvs($event)"></lib-reloj-lib>
+  </div>
+
+  <div *ngIf="setStopwatch" class="box-element flex">
+    <h2>Cronómetro</h2>
+    <lib-reloj-lib [initStopwatch]="true" [initStopwatchPanel]="true" (stopEvs)="stopEvs($event)"></lib-reloj-lib>
+  </div>
+
+  <div *ngIf="setCountdown" class="box-element flex">
+    <h2>Cuenta atrás</h2>
+    <lib-reloj-lib [initCountdown]="true" [initCountdownPanel]="true" (countEvs)="countEvs($event)" [countdown_hours]="c_hours" [countdown_minutes]="c_minutes" [countdown_seconds]="c_seconds"></lib-reloj-lib>
+
+    <div id="input">
+
+      <label>Horas</label>
+      <input type="number" name="h" min="0" [(ngModel)]="c_hours">
+  
+      <label>Minutos</label>
+      <input type="number" name="m" min="0" max="60" [(ngModel)]="c_minutes">
+  
+      <label>Segundos</label>
+      <input type="number" name="s" min="0" max="60" [(ngModel)]="c_seconds">
+  
+    </div>
+
+  </div>
+
+</div>
+<footer><span>Carlos Aponte. cdaponte95@gmail.com</span></footer>
+
+
+<router-outlet></router-outlet>

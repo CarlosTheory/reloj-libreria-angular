@@ -1,0 +1,104 @@
+.box-element{
+    margin: 0 auto;
+    align-items: center;
+}
+
+h2{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 2em;
+}
+
+p, span, label, button{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+:host ::ng-deep lib-reloj-lib .stopwatch div, :host ::ng-deep lib-reloj-lib .countdown div{
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+
+:host ::ng-deep lib-reloj-lib .stopwatch div, :host ::ng-deep lib-reloj-lib .countdown div{
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+
+:host ::ng-deep lib-reloj-lib .clock span, :host ::ng-deep lib-reloj-lib .stopwatch span, :host ::ng-deep lib-reloj-lib .countdown span{
+    font-family: 'Oswald', sans-serif;
+    font-size: 4em;
+    text-align: center;
+}
+
+.options ul{
+    margin: 0 auto;
+}
+
+.options ul li{
+    margin: 2px 2px 2px 2px;
+    display: inline;
+}
+
+.btn-menu{
+    display:inline-block;
+    border:1px solid red;
+    height:30px;
+    background-color: #fff;
+    color: black;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.btn-menu span{
+    cursor:pointer;
+    display: inline-block;
+    position:relative;
+    transition: 0.5s;
+}
+
+.btn-menu span:after{
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -5px;
+  transition: 0.5s;
+}
+
+.btn-menu:hover span{
+    padding-right: 10px;
+  }
+  
+.btn-menu:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.countdown{
+    width: 50px;
+}
+
+label{
+    margin: 2px 2px 2px 2px;
+}
+
+#input{
+    margin: 10px;
+}
+
+#input input{
+    width: 40px;
+}
+
+footer {
+    position:fixed;
+    left: 0;
+    bottom:0;
+    width: 100%;
+    text-align: center;
+    padding: 0 0 20px 0;
+}
