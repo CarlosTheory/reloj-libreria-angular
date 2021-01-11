@@ -2,26 +2,39 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.6.
 
-## Development server
+El repositorio tiene la estructura de angular y dentro una libreria y una app.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Instalación y prueba
 
-## Code scaffolding
+1. Ejecutar `npm install` 
+2. Ejecutar `npm run lib:build` o `ng build reloj-lib` para compilar la libreria, esto generara los directorios dist/ y dentro reloj-lib/.
+3. `ng serve reloj-ejemplo` para ejecutar la app de prueba.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Reloj-lib tiene las siguientes entradas:
 
-## Build
+`[initClock]` // 'true' o 'false' Inicia el Reloj
+`[initStopwatch]` // 'true' o 'false' Inicia el cronómetro, se debe iniciar el panel para activarlo
+`[initStopwatchPanel]` // 'true' o 'false' Inicia el panel del cronómetro
+`[initCountdown]` // 'true' o 'false' Inicia el cuenta átras, se debe iniciar el panel para activarlo
+`[initCountdownPanel]` // 'true' o 'false' Inicia el panel del cuenta átras
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Para el cuenta átras, recibe 
 
-## Running unit tests
+`[countdown_hours]` // 'horas' en numeros.
+`[countdown_minutes]` // 'minutos' en numeros.
+`[countdown_seconds]` // 'segundos' en numeros.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Emite eventos para Reloj, cronómetro y cuenta átras, con las siguientes salidas:
 
-## Running end-to-end tests
+### Reloj:
+`(clockEvs)` // `{timeClock}` = La hora
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+### Cronómetro
+`(stopEvs)`  //  `{timeStopwatch}` = Tiempo actual de cronómetro.
 
-## Further help
+### Cuenta átras
+`(countEvs)` // 
+    `{countdownStarted}` = "true" para indicar que la marcha átras ha comenzado, "false" para indicar que paró;
+    `{timeCountdown}` = Tiempo actual del tiempo cuenta átras
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+

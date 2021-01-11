@@ -2,6 +2,9 @@ import { Component, OnInit, OnDestroy, Input, SimpleChanges, Output, EventEmitte
 import { CommonModule } from '@angular/common';  
 import { BrowserModule } from '@angular/platform-browser';
 
+// Libreria Angular, muestra la hora actual, un cronómetro y un cuenta átras
+// Carlos Aponte, cdaponte95@gmail.com
+
 @Component({
   selector: 'lib-reloj-lib',
   template: `
@@ -215,7 +218,7 @@ export class RelojLibComponent implements OnInit {
       return v;
     } else {
       v = "00";
-      this.stopEvs.emit({ErrCountdown : '"No corresponde el pattern, solo se aceptan numeros."'});
+      this.countEvs.emit({ErrCountdown : '"No corresponde el pattern, solo se aceptan numeros."'});
       console.error("No corresponde el pattern, solo se aceptan numeros.");
       return v;
     }
