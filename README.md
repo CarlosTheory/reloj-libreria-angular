@@ -37,4 +37,11 @@ El repositorio tiene la estructura de angular y dentro una libreria y una app.
     `{countdownStarted}` = "true" para indicar que la marcha átras ha comenzado, "false" para indicar que paró;
     `{timeCountdown}` = Tiempo actual del tiempo cuenta átras
 
+## Screenthots reloj-ejemplo
+![screenshot reloj](screens/Screenshot_1.png)
+
+![screenshot cronómetro](screens/Screenshot_2.png)
+
+![screenshot cuenta átras](screens/Screenshot_3.png)
+
 

@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy, Input, SimpleChanges, Output, EventEmitte
 import { CommonModule } from '@angular/common';  
 import { BrowserModule } from '@angular/platform-browser';
 
-// Libreria Angular, muestra la hora actual, un cronómetro y un cuenta átras
+// Libreria Angular, muestra la hora actual, un cronómetro y un cuenta átras.
 // Carlos Aponte, cdaponte95@gmail.com
 
 @Component({
